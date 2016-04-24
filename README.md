@@ -4,14 +4,14 @@ Javascript-based Connect 4 Game
 
 ### MVP
 
-- A user can see a board
-- A user can see a styled board
-- A user can place a piece into a column
-- Users place alternating black and red pieces on the board
-- Users can't place a piece in a filled column
-- A user can see an animation when they place a piece
+- A user can see a board (DONE)
+- A user can see a styled board (DONE)
+- A user can place a piece into a column (DONE)
+- Users place alternating black and red pieces on the board (DONE)
+- Users can't place a piece in a filled column (DONE)
+- A user can see an animation when they place a piece (DONE)
 - Users are notified when they win the game (only vertical and horizontal win cases)
-- Users can play against each other in the same browser
+- Users can play against each other in the same browser (DONE)
 
 ### Stretch
 - Users have the option to play against the computer
