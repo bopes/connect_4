@@ -1,5 +1,7 @@
 <table>
+  <% @rowNo = 0 %>
   <% 7.times do %>
+    <% @rowNo += 1 %>
     <%= erb :_row %>
   <%end %>
 </table>

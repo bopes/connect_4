@@ -1,5 +1,7 @@
 <tr>
+  <% @columnNo = 0 %>
   <% 7.times do  %>
+    <% @columnNo += 1 %>
     <%= erb :_space %>
   <% end %>
 </tr>
