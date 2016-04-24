@@ -27,3 +27,17 @@ td {
   border: solid 1px orange;
   border-radius: 1000px;
 }
+
+button {
+  font-size: 2em;
+  color: #ffe700;
+  background-color: #d75e63;
+  margin: 20px auto;
+  border: 10px;
+  padding: 10px;
+}
+
+button:hover{
+  color: #d75e63;
+  background-color: #ffe700;
+}

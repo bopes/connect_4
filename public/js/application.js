@@ -18,11 +18,13 @@ $(document).ready(function() {
     if ($(this).hasClass('empty')) {
       if ( turnCounter % 2 === 0 ) {
         $bottomColumnSpace.css('background-color', 'red')
+        $bottomColumnSpace.effect( "bounce", { times: 3 }, 500 )
         $bottomColumnSpace.removeClass('empty')
         $bottomColumnSpace.addClass('filled')
         turnCounter += 1
       } else {
         $bottomColumnSpace.css('background-color', 'black')
+        $bottomColumnSpace.effect( "bounce", { times: 3 }, 500 )
         $bottomColumnSpace.removeClass('empty')
         $bottomColumnSpace.addClass('filled')
         turnCounter += 1
@@ -30,5 +32,14 @@ $(document).ready(function() {
     }
 
   })
+
+  $('.reset').click(function(){
+    $('.space').removeClass('filled')
+    $('.space').addClass('empty')
+    $('table').effect( "shake", { times: 2 }, 100 )
+    $('.space').css('background-color', '#5ed7d2')
+
+  })
+
 });
 
