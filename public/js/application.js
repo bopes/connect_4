@@ -19,20 +19,18 @@ $(document).ready(function() {
     if ($(this).hasClass('empty')) {
       colorSpace($bottomColumnSpace, turnColor())
       $bottomColumnSpace.effect( "bounce", { times: 3 }, 500 )
-      changeSpaceClass($bottomColumnSpace)
+      fillSpace($bottomColumnSpace)
       turnCounter += 1
     }
   })
 
   $('.reset').click(function(){
-    $('.space').removeClass('filled')
-    $('.space').addClass('empty')
+    clearSpaces($('.space'))
     $('table').effect( "shake", { times: 2 }, 100 )
-    $('.space').css('background-color', '#5ed7d2')
+    colorSpace($('.space'), backgroundColor)
   })
 
 });
-
 
 function findBottomColumnSpace(space) {
   var row = "." + space.attr('class').split(" ")[1]
@@ -50,7 +48,7 @@ function colorSpace(space, color){
   space.css('background-color', color)
 }
 
-function changeSpaceClass(space){
+function fillSpace(space){
   if (space.hasClass('empty')) {
     space.removeClass('empty')
     space.addClass('filled')
@@ -58,4 +56,9 @@ function changeSpaceClass(space){
     space.addClass('empty')
     space.removeClass('filled')
   }
+}
+
+function clearSpaces(spaces){
+  spaces.addClass('empty')
+  spaces.removeClass('filled')
 }
