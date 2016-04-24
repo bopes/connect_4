@@ -8,10 +8,12 @@ $(document).ready(function() {
   $('.header').hover(
     function(){
       var $bottomColumnSpace = findBottomColumnSpace($(this))
-      colorSpace($bottomColumnSpace, hoverColor())
+      if ($bottomColumnSpace.hasClass('empty'))
+        { colorSpace($bottomColumnSpace, hoverColor()) }
     }, function(){
       var $bottomColumnSpace = findBottomColumnSpace($(this))
-      colorSpace($bottomColumnSpace, backgroundColor)
+      if ($bottomColumnSpace.hasClass('empty'))
+        { colorSpace($bottomColumnSpace, backgroundColor) }
     })
 
   $('.header').click(function(){
