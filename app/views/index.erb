@@ -1,7 +1,7 @@
 <table>
-  <% @rowNo = 0 %>
+  <% @rowNo = 7 %>
   <% 7.times do %>
-    <% @rowNo += 1 %>
     <%= erb :_row %>
+    <% @rowNo -= 1 %>
   <%end %>
 </table>
