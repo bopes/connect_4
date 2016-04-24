@@ -1,0 +1,11 @@
+<h1>Welcome to Connect 4!</h1>
+
+<table>
+  <% @rowNo = 7 %>
+  <% 7.times do %>
+    <%= erb :_row %>
+    <% @rowNo -= 1 %>
+  <%end %>
+</table>
+
+<button class='reset'>Reset Board</button>
