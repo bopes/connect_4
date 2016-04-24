@@ -1,6 +1,13 @@
 <h1>Welcome to Connect 4!</h1>
 
 <table>
+
+  <% @columnNo = 1 %>
+  <% 7.times do  %>
+    <%= erb :_header_space %>
+    <% @columnNo += 1 %>
+  <% end %>
+
   <% @rowNo = 7 %>
   <% 7.times do %>
     <%= erb :_row %>
@@ -8,4 +15,6 @@
   <%end %>
 </table>
 
-<button class='reset'>Reset Board</button>
+<div class='center'>
+  <button class='reset'>Reset Board</button>
+</div>

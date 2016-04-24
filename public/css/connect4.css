@@ -16,8 +16,22 @@ table {
   border-top: none;
 }
 
+.header {
+  color: #ffe700;
+  font-size: 2em;
+  background-color: #d75e63;
+  margin: 2px 2px 10px 2px;
+  padding: 10px 0 5px 0;
+}
+
+.header:hover{
+  border: solid 2px #d75e63;
+  margin: 0 0 8px 0;
+  color: #d75e63;
+  background-color: #ffe700;
+}
+
 td {
-  padding: 2px;
 }
 
 .space {
@@ -26,13 +40,19 @@ td {
   background-color: #5ed7d2;
   border: solid 1px orange;
   border-radius: 1000px;
+  margin: 1px;
+  padding: 2px;
 }
 
-button {
+.center {
+  text-align: center;
+}
+
+.reset {
   font-size: 2em;
   color: #ffe700;
   background-color: #d75e63;
-  margin: 20px auto;
+  margin: 20px;
   border: 10px;
   padding: 10px;
 }
@@ -40,4 +60,6 @@ button {
 button:hover{
   color: #d75e63;
   background-color: #ffe700;
+  border: solid 2px #d75e63;
+  margin: 18px;
 }
