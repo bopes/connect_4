@@ -28,11 +28,15 @@ td {
   border-radius: 1000px;
 }
 
-button {
+.center {
+  text-align: center;
+}
+
+.reset {
   font-size: 2em;
   color: #ffe700;
   background-color: #d75e63;
-  margin: 20px auto;
+  margin: 20px;
   border: 10px;
   padding: 10px;
 }
