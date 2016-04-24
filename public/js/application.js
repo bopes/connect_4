@@ -7,6 +7,8 @@ $(document).ready(function() {
     var row = $(this).attr('class').split(" ")[1]
     var column = $(this).attr('class').split(" ")[2]
 
+
+
     if ($(this).hasClass('empty')) {
       if ( turnCounter % 2 === 0 ) {
         $(this).css('background-color', 'red')
