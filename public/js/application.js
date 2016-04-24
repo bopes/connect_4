@@ -5,7 +5,7 @@ $(document).ready(function() {
   function turnColor(){ if (turnCounter % 2 === 0) { return 'red' } else { return 'black' } }
   function hoverColor(){ if (turnColor() === 'red') { return 'pink' } else { return 'grey' } }
 
-  $('.space').hover(
+  $('.header').hover(
     function(){
       var $bottomColumnSpace = findBottomColumnSpace($(this))
       colorSpace($bottomColumnSpace, hoverColor())
@@ -14,9 +14,9 @@ $(document).ready(function() {
       colorSpace($bottomColumnSpace, backgroundColor)
     })
 
-  $('.space').click(function(){
+  $('.header').click(function(){
     var $bottomColumnSpace = findBottomColumnSpace($(this))
-    if ($(this).hasClass('empty')) {
+    if ($bottomColumnSpace.hasClass('empty')) {
       colorSpace($bottomColumnSpace, turnColor())
       $bottomColumnSpace.effect( "bounce", { times: 3 }, 500 )
       fillSpace($bottomColumnSpace)
