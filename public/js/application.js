@@ -111,6 +111,14 @@ function prepareMatrix(rows, columns){
   }
 }
 
+function findDiagonals(rows, columns){
+  for (i=0; i<7; i++) {
+    var emptyDiag = []
+
+  }
+}
+
+
 function checkAllWins(rows, columns){
   if ( checkWins(rows) || checkWins(columns) ) {
     return true
