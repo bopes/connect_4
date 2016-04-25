@@ -2,8 +2,9 @@ $(document).ready(function() {
 
   var backgroundColor = '#5ed7d2'
   var turnCounter = 0
-  function turnColor(){ if (turnCounter % 2 === 0) { return 'red' } else { return 'black' } }
-  function hoverColor(){ if (turnColor() === 'red') { return 'pink' } else { return 'grey' } }
+  function player(){ return turnCounter % 2 + 1 }
+  function turnColor(){ if (player() === 1) { return 'red' } else { return 'black' } }
+  function hoverColor(){ if (player() === 1) { return 'pink' } else { return 'grey' } }
 
   var rows = []
   var columns = []
@@ -31,7 +32,7 @@ $(document).ready(function() {
       var row = findRow($bottomColumnSpace).slice(-1)
       var column = findColumn($bottomColumnSpace).slice(-1)
 
-      if ( turnColor() === 'red' ) {
+      if ( player() === 1 ) {
         rows[row - 1][column - 1] = "R"
         columns[column - 1][row - 1] = "R"
       } else {
@@ -40,7 +41,7 @@ $(document).ready(function() {
       }
 
       if ( checkAllWins(rows, columns) ){
-        var message = turnColor() + " wins!\n\nClick 'Reset Board' to play again!"
+        var message = "Player " + player() +" wins!\n\nClick 'Reset Board' to play again!"
         message
         alert( message )
         $('.space').removeClass('empty')
