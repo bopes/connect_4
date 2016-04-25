@@ -6,14 +6,8 @@ $(document).ready(function() {
   function hoverColor(){ if (turnColor() === 'red') { return 'pink' } else { return 'grey' } }
 
   var rows = []
-  for ( i=0; i<7; i++ ) {
-    var emptyRow = []
-    for ( i=0; i<7; i++ ) {
-      emptyRow.push("_")
-    }
-    rows.push(emptyRow)
-  }
-
+  var columns = []
+  prepareMatrix(rows, columns)
 
   $('.header').hover(
     function(){
@@ -34,33 +28,25 @@ $(document).ready(function() {
       fillSpace($bottomColumnSpace)
 
 
-
       var row = findRow($bottomColumnSpace).slice(-1)
       var column = findColumn($bottomColumnSpace).slice(-1)
 
-      console.log("Row: " + row)
-      console.log("Column: " + column)
-
       if ( turnColor() === 'red' ) {
-
-
         rows[row - 1][column - 1] = "R"
-
-
-
-
-      } else { rows[row - 1][column - 1] = "B" }
-
-      for ( i=0; i < 7; i++){
-        console.log(rows[i])
+        columns[column - 1][row - 1] = "R"
+      } else {
+        rows[row - 1][column - 1] = "B"
+        columns[column - 1][row - 1] = "B"
       }
 
-
-
-      checkRowWins(rows)
+      if ( checkAllWins(rows, columns) ){
+        var message = turnColor() + " wins!\n\nClick 'Reset Board' to play again!"
+        message
+        alert( message )
+        $('.space').removeClass('empty')
+      }
 
       turnCounter += 1
-
     }
   })
 
@@ -68,6 +54,7 @@ $(document).ready(function() {
     clearSpaces($('.space'))
     $('table').effect( "shake", { times: 2 }, 100 )
     colorSpace($('.space'), backgroundColor)
+    prepareMatrix(rows, columns)
   })
 
 });
@@ -111,15 +98,30 @@ function clearSpaces(spaces){
   spaces.removeClass('filled')
 }
 
-function checkAllWins(containers){
-  checkRowWins(containers)
-  // checkColumnWins(containers)
-}
-
-function checkRowWins(containers){
-  for ( i = 0; i < containers.length; i++ ) {
-    var container = containers[i].join("")
-    if (/RRRR/.test(container)) { console.log("Red wins") }
-      else if (/BBBB/.test(container)) { console.log("Black wins") }
+function prepareMatrix(rows, columns){
+  for ( i=0; i<7; i++ ) {
+    var emptyRow = []
+    var emptyColumn = []
+    for ( j=0; j<7; j++ ) {
+      emptyRow.push("_")
+      emptyColumn.push("_")
+    }
+    rows[i] = emptyRow
+    columns[i] = emptyColumn
   }
 }
+
+function checkAllWins(rows, columns){
+  if ( checkWins(rows) || checkWins(columns) ) {
+    return true
+  }
+}
+
+function checkWins(containers){
+  for ( i = 0; i < containers.length; i++ ) {
+    var container = containers[i].join("")
+    if (/RRRR/.test(container) || /BBBB/.test(container)) { return true }
+  }
+}
+
+
