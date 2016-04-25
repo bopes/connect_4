@@ -29,22 +29,21 @@ $(document).ready(function() {
       fillSpace($bottomColumnSpace)
 
 
-      var row = findRow($bottomColumnSpace).slice(-1)
-      var column = findColumn($bottomColumnSpace).slice(-1)
+      var row = findRow($bottomColumnSpace).slice(-1) - 1
+      var column = findColumn($bottomColumnSpace).slice(-1) - 1
 
-      if ( player() === 1 ) {
-        rows[row - 1][column - 1] = "R"
-        columns[column - 1][row - 1] = "R"
+      if (player() === 1) {
+        rows[row][column] = "R"
+        columns[column][row] = "R"
       } else {
-        rows[row - 1][column - 1] = "B"
-        columns[column - 1][row - 1] = "B"
+        rows[row][column] = "B"
+        columns[column][row] = "B"
       }
 
-      if ( checkAllWins(rows, columns) ){
-        var message = "Player " + player() +" wins!\n\nClick 'Reset Board' to play again!"
-        message
-        alert( message )
+      if (checkAllWins(rows, columns)) {
         $('.space').removeClass('empty')
+        var message = "Player " + player() +" wins!\n\nClick 'Reset Board' to play again!"
+        setTimeout(function(){ alert(message) }, 1000)
       }
 
       turnCounter += 1
