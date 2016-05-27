@@ -111,12 +111,7 @@ function prepareMatrix(rows, columns){
   }
 }
 
-function findDiagonals(rows, columns){
-  for (i=0; i<7; i++) {
-    var emptyDiag = []
 
-  }
-}
 
 
 function checkAllWins(rows, columns){
@@ -133,3 +128,12 @@ function checkWins(containers){
 }
 
 
+// function findDiagonals(diags, rows){
+//   for (i=0; i<12; i++) {
+//     for (j=0, l=0; j<7, l<7; j++, l++){
+//       if (j + l === i) {
+//         rows[i][j]
+//       }
+//     }
+//   }
+// }
